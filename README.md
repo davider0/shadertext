@@ -1,6 +1,6 @@
-# Quick Start
+# ⚙ Set-up
 
-## Dependencies
+## Dependencias
 
 - [SDL2 2.0.9+](https://www.libsdl.org/)
 - [FreeType 2.13.0+](https://freetype.org/)
@@ -13,7 +13,7 @@ $ ./build.sh
 $ ./ded src/main.c
 ```
 
-## Windows MSVC
+## Windows MSVC (desde Developer Command Prompt for VS)
 
 ```console
 > .\setup_dependencies.bat
@@ -21,7 +21,7 @@ $ ./ded src/main.c
 > .\ded.exe src\main.c
 ```
 
-# Fonts
+# Tipografías
 
 - Victor Mono: https://rubjo.github.io/victor-mono/
 - Iosevka: https://github.com/be5invis/Iosevka
