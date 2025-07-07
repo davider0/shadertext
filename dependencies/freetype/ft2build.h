@@ -27,8 +27,7 @@
 #define __FT2_BUILD_WINDOWS_H__
 
 /* Include the main FreeType header directly from current directory structure */
-#include "freetype/freetype.h"
-
+#include <../dependencies/freetype/freetype.h>
 #endif /* __FT2_BUILD_WINDOWS_H__ */
 
 

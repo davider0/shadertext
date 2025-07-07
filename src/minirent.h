@@ -34,6 +34,20 @@
 #ifndef MINIRENT_H_
 #define MINIRENT_H_
 
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#include <io.h>
+#else
+#include <sys/types.h>
+#include <dirent.h>
+#endif
+
 #define WIN32_LEAN_AND_MEAN
 #include "windows.h"
 

@@ -13,6 +13,7 @@
 #include "../dependencies/freetype/ft2build.h"
 #include FT_FREETYPE_H
 
+
 #include "./editor.h"
 #include "./file_browser.h"
 #include "./la.h"
