@@ -4,11 +4,11 @@
 #include <errno.h>
 #include <string.h>
 
-#include "../dependencies/SDL2/include/SDL.h"
+#include "../dependencies/SDL2/include/SDL2/SDL2/SDL.h"
 #define GLEW_STATIC
 #include "../dependencies/GLEW/include/GL/glew.h"
 #define GL_GLEXT_PROTOTYPES
-#include "../dependencies/SDL2/include/SDL_opengl.h"
+#include "../dependencies/SDL2/include/SDL2/SDL2/SDL_opengl.h"
 
 #include "../dependencies/freetype/ft2build.h"
 #include FT_FREETYPE_H

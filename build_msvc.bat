@@ -15,7 +15,6 @@ set LIBS=dependencies\SDL2\lib\x64\SDL2.lib ^
          dependencies\SDL2\lib\x64\SDL2main.lib ^
          dependencies\GLFW\lib\glfw3.lib ^
          dependencies\GLEW\lib\glew32s.lib ^
-         dependencies\freetype\lib\freetype.lib ^
-         dependencies\freetype\lib\freetype.lib
+         dependencies\freetype\lib\freetype.lib 
 
 cl.exe %CFLAGS% %INCLUDES% /Feded src\main.c src\la.c src\editor.c src\file_browser.c src\free_glyph.c src\simple_renderer.c src\common.c /link %LIBS% -SUBSYSTEM:windows

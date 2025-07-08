@@ -6,12 +6,6 @@
 - [FreeType 2.13.0+](https://freetype.org/)
 - [GLEW 2.1.0+](https://glew.sourceforge.net/)
 
-## POSIX
-
-```console
-$ ./build.sh
-$ ./ded src/main.c
-```
 
 ## Windows MSVC (Developer Command Prompt for VS)
 
