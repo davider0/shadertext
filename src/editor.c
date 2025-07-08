@@ -542,3 +542,4 @@ void editor_move_paragraph_down(Editor *e)
     }
     e->cursor = e->lines.items[row].begin;
 }
+

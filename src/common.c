@@ -130,6 +130,7 @@ Vec4f hex_to_vec4f(uint32_t color)
     return result;
 }
 
+// ... existing code ...
 Errno type_of_file(const char *file_path, File_Type *ft)
 {
 #ifdef _WIN32
@@ -154,6 +155,6 @@ Errno type_of_file(const char *file_path, File_Type *ft)
     } else {
         *ft = FT_OTHER;
     }
-#endif
     return 0;
+#endif
 }
