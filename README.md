@@ -28,7 +28,7 @@
 
 ## Compilar proyecto
 ```bash
-.uild_msvc.bat
+.build_msvc.bat
 ```
 
 ## Ejecutar editor
