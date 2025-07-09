@@ -7,14 +7,14 @@ set INCLUDES=/I dependencies\SDL2\include ^
              /I dependencies\GLEW\include ^
              /I dependencies\freetype ^
              /I dependencies\freetype\config ^
-             /I dependencies\freetype ^
              /I dependencies\freetype\freetype\config ^
-             /I src
+             /I src ^
+             /I dependencies\freetype\freetype\lib
 
 set LIBS=dependencies\SDL2\lib\x64\SDL2.lib ^
          dependencies\SDL2\lib\x64\SDL2main.lib ^
          dependencies\GLFW\lib\glfw3.lib ^
          dependencies\GLEW\lib\glew32s.lib ^
-         dependencies\freetype\lib\freetype.lib 
+         "C:\Users\David\Desktop\ded-master\dependencies\freetype\freetype\lib\freetype.lib"
 
-cl.exe %CFLAGS% %INCLUDES% /Feded src\main.c src\la.c src\editor.c src\file_browser.c src\free_glyph.c src\simple_renderer.c src\common.c /link %LIBS% -SUBSYSTEM:windows
+cl.exe %CFLAGS% %INCLUDES% /Feded src\main.c src\la.c src\editor.c src\file_browser.c src\free_glyph.c src\simple_renderer.c src\common.c /link %LIBS% -SUBSYSTEM:windows 
