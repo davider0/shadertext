@@ -10,6 +10,8 @@
 
 ## Características
 
+Editor de texto con gráficos 2D utilizando SDL2, GLEW y FreeType.
+
 ## Requisitos
 
 - **SDL2 2.0.12+** ([Official Site](https://www.libsdl.org/))
@@ -65,5 +67,3 @@ MIT License - Ver [LICENSE]() para más detalles
 4. Push a la rama
    `git push origin feature-1/mejora`
 5. Abrir Pull Request y esperar una revisión
-
-
