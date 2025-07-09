@@ -22,16 +22,48 @@
 # ⚙ Windows (MSVC)
 
 ## Descargar dependencias
+
 ```bash
 .\setup_dependencies.bat
 ```
 
 ## Compilar proyecto
+
+```bash
+call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+```
+
 ```bash
 .build_msvc.bat
 ```
 
 ## Ejecutar editor
+
 ```bash
 .\ded.exe src\main.c
 ```
+
+## Configuración
+
+- Desktop Development with C++ workload
+- Windows 10 SDK (10.0.19041.0)
+- Requiere fuentes en el directorio `fonts/`
+  - Victor Mono - Fuente monospace principal
+  - Iosevka - Fuente monospace secundaria
+
+## Licencia
+
+MIT License - Ver [LICENSE]() para más detalles
+
+## Contribuciones
+
+1. Clonar repositorio
+2. Crear rama para nueva funcionalidad o corrección de errores
+   `git checkout -b feature-1/mejora`
+3. Hacer commit de cambios
+   `git commit -m 'Add amazing feature'`
+4. Push a la rama
+   `git push origin feature-1/mejora`
+5. Abrir Pull Request y esperar una revisión
+
+
