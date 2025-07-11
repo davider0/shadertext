@@ -1,6 +1,6 @@
-# Shadertext Editor
+# 🎨 Shadertext Editor
 
-## Tabla de Contenidos
+## 👇 Tabla de Contenidos
 
 - [Características](#características)
 - [Requisitos](#requisitos)
@@ -8,28 +8,28 @@
 - [Configuración](#configuración)
 - [Licencia](#licencia)
 
-## Características
+## 📃 Características
 
 Editor de texto con gráficos 2D utilizando SDL2, GLEW y FreeType.
 
-## Requisitos
+## 🔎 Requisitos
 
 - **SDL2 2.0.12+** ([Official Site](https://www.libsdl.org/))
 - **FreeType 2.13.0+** ([Documentación](https://freetype.org/))
 - **GLEW 2.1.0+** ([Repositorio](https://github.com/nigels-com/glew))
 - Compilador MSVC o compatible C11
 
-# Instalación
+## 💿 Instalación
 
-# ⚙ Windows (MSVC)
+### ⚙ Windows (MSVC)
 
-## Descargar dependencias
+### Descargar dependencias
 
 ```bash
 .\setup_dependencies.bat
 ```
 
-## Compilar proyecto
+### Compilar proyecto
 
 ```bash
 call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
@@ -39,13 +39,13 @@ call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
 .build_msvc.bat
 ```
 
-## Ejecutar editor
+### Ejecutar editor
 
 ```bash
 .\ded.exe src\main.c
 ```
 
-## Configuración
+## 🔧 Configuración
 
 - Desktop Development with C++ workload
 - Windows 10 SDK (10.0.19041.0)
@@ -53,11 +53,11 @@ call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
   - Victor Mono - Fuente monospace principal
   - Iosevka - Fuente monospace secundaria
 
-## Licencia
+## 📄 Licencia
 
 MIT License - Ver [LICENSE]() para más detalles
 
-## Contribuciones
+## ✍ Contribuciones
 
 1. Clonar repositorio
 2. Crear rama para nueva funcionalidad o corrección de errores
