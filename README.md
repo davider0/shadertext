@@ -23,9 +23,7 @@ Editor de texto con gráficos 2D utilizando SDL2, GLEW y FreeType.
 
 ## 💿 Instalación <a id="installation"></a>
 
-### ⚙ Windows (MSVC)
-
-set CFLAGS=/W4 /WX /wd4244 /wd4305 /wd4018 /wd4702 /std:c11 /wd4996 /wd5105 /wd4200 /wd4013 /FC /TC /Zi /nologo /EHsc
+### <u>⚙ Windows (MSVC)</u>
 
 ### Descargar dependencias
 
