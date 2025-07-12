@@ -12,8 +12,8 @@ set INCLUDES=/I dependencies\SDL2\include ^
              /I src ^
              /I dependencies\freetype\freetype\lib
 
-set LIBS=dependencies\SDL2\lib\x64\SDL2.lib ^
-         dependencies\SDL2\lib\x64\SDL2main.lib ^
+set LIBS="C:\Users\David\Desktop\ded-master\dependencies\SDL2\lib\x64\SDL2.lib" ^
+         "C:\Users\David\Desktop\ded-master\dependencies\SDL2\lib\x64\SDL2main.lib" ^
          dependencies\GLFW\lib\glfw3.lib ^
          dependencies\GLEW\lib\glew32s.lib ^
          opengl32.lib ^
@@ -23,3 +23,8 @@ set LIBS=dependencies\SDL2\lib\x64\SDL2.lib ^
 
 
 cl.exe %CFLAGS% %INCLUDES% /Feded src\main.c src\la.c src\editor.c src\file_browser.c src\free_glyph.c src\simple_renderer.c src\common.c src\lexer.c /link %LIBS% -IGNORE:4099 -NODEFAULTLIB:LIBCMT -SUBSYSTEM:windows
+
+mkdir .dist\ >nul 2>&1
+xcopy /Y /D "%CD%\dependencies\SDL2\lib\x64\SDL2.dll" ".dist\" >nul
+
+xcopy /Y /D "%CD%\dependencies\freetype\freetype\lib\freetype.dll" ".dist\" >nul

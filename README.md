@@ -71,4 +71,5 @@ MIT License - Ver [LICENSE](LICENSE) para más detalles
 5. Abrir Pull Request y esperar una revisión
 
 ##
+
 "Haz un programa que sea tan simple que obviamente no tenga deficiencias o un programa tan complejo que no tenga deficiencias obvias" - C. A. R. Hoare
