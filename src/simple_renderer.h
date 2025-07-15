@@ -4,10 +4,10 @@
 #include <assert.h>
 
 #define GLEW_STATIC
-#include <GL/glew.h>
+#include "../dependencies/GLEW/include/GL/glew.h"
 
 #define GL_GLEXT_PROTOTYPES
-#include <SDL2/SDL_opengl.h>
+#include "../dependencies/SDL2/include/SDL_opengl.h"
 
 #include "./la.h"
 

@@ -5,15 +5,15 @@
 #include "./la.h"
 
 #define GLEW_STATIC
-#include <GL/glew.h>
+#include "../dependencies/GLEW/include/GL/glew.h"
 
 #define GL_GLEXT_PROTOTYPES
-#include <SDL2/SDL_opengl.h>
+#include "../dependencies/SDL2/include/SDL_opengl.h"
 
-#include <ft2build.h>
+#include "../dependencies/freeetype/ft2build.h"
 #include FT_FREETYPE_H
 
-#include "simple_renderer.h"
+#include "./simple_renderer.h"
 
 #define FREE_GLYPH_FONT_SIZE 64
 
