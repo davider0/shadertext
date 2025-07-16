@@ -5,3 +5,10 @@ SDL2
 *.obj
 *.pdb
 *.ilk
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
