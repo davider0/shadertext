@@ -10,7 +10,7 @@
 #define GL_GLEXT_PROTOTYPES
 #include "../dependencies/SDL2/include/SDL_opengl.h"
 
-#include "../dependencies/freeetype/ft2build.h"
+#include "../dependencies/freetype/include/ft2build.h"
 #include FT_FREETYPE_H
 
 #include "./simple_renderer.h"
