@@ -305,7 +305,7 @@ void simple_renderer_sync(Simple_Renderer *sr)
 {
     glBufferSubData(GL_ARRAY_BUFFER,
                     0,
-                    sr->verticies_count * sizeof(Simple_Vertex),
+                    (GLsizei)(sr->verticies_count * sizeof(Simple_Vertex)),
                     sr->verticies);
 }
 
