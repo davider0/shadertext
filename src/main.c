@@ -3,6 +3,7 @@
 #include <termios.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <sys/ioctl.h>
 #include <errno.h>
 #include <stdlib.h>
 
@@ -18,7 +19,7 @@ struct editorConfig E;
 
 /*** terminal ***/
 void die(const char *s) {
-          write(STDOUT_FILENO, "\x1b[2J", 4);
+      write(STDOUT_FILENO, "\x1b[2J", 4);
       write(STDOUT_FILENO, "\x1b[H", 3);
     perror(s);
     exit(1);
@@ -28,13 +29,12 @@ void disableRawMode(){
     die("tcsetattr");
 }
 void enableRawMode() {
-    if (tcgetattr(STDIN_FILENO, &E.orig_termios) == -1) die("tcgetattr");
-    tcgetattr(STDIN_FILENO, &orig_termios);
+  if (tcgetattr(STDIN_FILENO, &E.orig_termios) == -1) die("tcgetattr");
     atexit(disableRawMode);
     struct termios raw = E.orig_termios;
-      raw.c_iflag &= ~(BRKINT | ICRNL | INPCK | ISTRIP | IXON);
+    raw.c_iflag &= ~(BRKINT | ICRNL | INPCK | ISTRIP | IXON);
     raw.c_oflag &= ~(OPOST);
-      raw.c_cflag |= (CS8);
+    raw.c_cflag |= (CS8);
     raw.c_lflag &= ~(ECHO | ICANON | ISIG);
     raw.c_cc[VMIN] = 0;
     raw.c_cc[VTIME] = 1;
@@ -50,6 +50,17 @@ void enableRawMode() {
     }
     return c;
   }
+
+  int getWindowSize(int *rows, int *cols) {
+  struct winsize ws;
+  if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws) == -1 || ws.ws_col == 0) {
+    return -1;
+  } else {
+    *cols = ws.ws_col;
+    *rows = ws.ws_row;
+    return 0;
+  }
+}
 
   /*** output ***/
   void editorRefreshScreen() {
