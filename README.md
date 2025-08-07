@@ -78,10 +78,8 @@ Crea un archivo llamado `Makefile` con este contenido:
 
 ```makefile
 shadertext: shadertext.c
-<TAB>$(CC) shadertext.c -o shadertext -Wall -Wextra -pedantic -std=c99
+   $(CC) shadertext.c -o shadertext -Wall -Wextra -pedantic -std=c99
 ```
-
-_(Reemplaza `<TAB>` por un tabulador real, no espacios.)_
 
 Luego ejecuta:
 
