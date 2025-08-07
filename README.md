@@ -54,7 +54,7 @@ Editor de texto minimalista en C, sin dependencias externas (solo el estándar d
 
 ### Paso 1: Crear el archivo fuente
 
-Crea un archivo llamado `shadertext.c` (o `kilo.c` en el original):
+Crea un archivo llamado `shadertext.c`:
 
 ```c
 int main() {

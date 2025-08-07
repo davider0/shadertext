@@ -1,4 +1,4 @@
-#define KILO_VERSION "0.0.1"
+#define SHADERTEXT_VERSION "0.0.1"
 
 #ifdef __linux__
 #define _POSIX_C_SOURCE 200809L
@@ -20,16 +20,16 @@
 #include <fcntl.h>
 #include <signal.h>
 
-/* Syntax highlight types */
+/* Tipos de la sintaxis */
 #define HL_NORMAL 0
 #define HL_NONPRINT 1
-#define HL_COMMENT 2   /* Single line comment. */
-#define HL_MLCOMMENT 3 /* Multi-line comment. */
+#define HL_COMMENT 2   /* Comentario de una sola línea. */
+#define HL_MLCOMMENT 3 /* Comentario multilínea. */
 #define HL_KEYWORD1 4
 #define HL_KEYWORD2 5
 #define HL_STRING 6
 #define HL_NUMBER 7
-#define HL_MATCH 8      /* Search match. */
+#define HL_MATCH 8      /*  */
 
 #define HL_HIGHLIGHT_STRINGS (1<<0)
 #define HL_HIGHLIGHT_NUMBERS (1<<1)
@@ -43,16 +43,15 @@ struct editorSyntax {
     int flags;
 };
 
-/* This structure represents a single line of the file we are editing. */
+/* Esta estructura representa una sola línea del archivo que estamos editando. */
 typedef struct erow {
-    int idx;            /* Row index in the file, zero-based. */
-    int size;           /* Size of the row, excluding the null term. */
-    int rsize;          /* Size of the rendered row. */
-    char *chars;        /* Row content. */
-    char *render;       /* Row content "rendered" for screen (for TABs). */
-    unsigned char *hl;  /* Syntax highlight type for each character in render.*/
-    int hl_oc;          /* Row had open comment at end in last syntax highlight
-                           check. */
+    int idx;            /* Índice de fila en el archivo, basado en cero. */
+    int size;           /* Tamaño de la fila, excluyendo el término nulo. */
+    int rsize;          /* Tamaño de la fila renderizada. */
+    char *chars;        /* Contenido de la fila. */
+    char *render;       /* Contenido de la fila "renderizado" para la pantalla (para tabulaciones). */
+    unsigned char *hl;  /* Tipo de resaltado de sintaxis para cada carácter en la renderización.*/
+    int hl_oc;          /* La fila tenía un comentario abierto al final en la última verificación de resaltado de sintaxis. */
 } erow;
 
 typedef struct hlcolor {
@@ -60,30 +59,30 @@ typedef struct hlcolor {
 } hlcolor;
 
 struct editorConfig {
-    int cx,cy;  /* Cursor x and y position in characters */
-    int rowoff;     /* Offset of row displayed. */
-    int coloff;     /* Offset of column displayed. */
-    int screenrows; /* Number of rows that we can show */
-    int screencols; /* Number of cols that we can show */
-    int numrows;    /* Number of rows */
-    int rawmode;    /* Is terminal raw mode enabled? */
-    erow *row;      /* Rows */
-    int dirty;      /* File modified but not saved. */
-    char *filename; /* Currently open filename */
+    int cx,cy;  /* Posición x e y del cursor en caracteres */
+    int rowoff;     /* Desplazamiento de la fila mostrada. */
+    int coloff;     /* Desplazamiento de la columna mostrada. */
+    int screenrows; /* Número de filas que podemos mostrar */
+    int screencols; /* Número de columnas que podemos mostrar */
+    int numrows;    /* Número de filas */
+    int rawmode;    /* ¿Está habilitado el modo raw del terminal? */
+    erow *row;      /* Filas */
+    int dirty;      /* Archivo modificado pero no guardado. */
+    char *filename; /* Nombre del archivo actualmente abierto */
     char statusmsg[80];
     time_t statusmsg_time;
-    struct editorSyntax *syntax;    /* Current syntax highlight, or NULL. */
+    struct editorSyntax *syntax;    /* Resaltado de sintaxis actual, o NULL. */
 };
 
 static struct editorConfig E;
 
 enum KEY_ACTION{
-        KEY_NULL = 0,       /* NULL */
+        KEY_NULL = 0,       /* NULO */
         CTRL_C = 3,         /* Ctrl-c */
         CTRL_D = 4,         /* Ctrl-d */
         CTRL_F = 6,         /* Ctrl-f */
         CTRL_H = 8,         /* Ctrl-h */
-        TAB = 9,            /* Tab */
+        TAB = 9,            /* Tabulador */
         CTRL_L = 12,        /* Ctrl+l */
         ENTER = 13,         /* Enter */
         CTRL_Q = 17,        /* Ctrl-q */
@@ -860,7 +859,7 @@ void editorRefreshScreen(void) {
             if (E.numrows == 0 && y == E.screenrows/3) {
                 char welcome[80];
                 int welcomelen = snprintf(welcome,sizeof(welcome),
-                    "editor hecho por David -- verison %s\x1b[0K\r\n", KILO_VERSION);
+                    "editor hecho por David -- version %s\x1b[0K\r\n", SHADERTEXT_VERSION);
                 int padding = (E.screencols-welcomelen)/2;
                 if (padding) {
                     abAppend(&ab,"~",1);
@@ -975,10 +974,10 @@ void editorSetStatusMessage(const char *fmt, ...) {
 
 /* =============================== Find mode ================================ */
 
-#define KILO_QUERY_LEN 256
+#define SHADERTEXT_QUERY_LEN 256
 
 void editorFind(int fd) {
-    char query[KILO_QUERY_LEN+1] = {0};
+    char query[SHADERTEXT_QUERY_LEN+1] = {0};
     int qlen = 0;
     int last_match = -1; /* Last line where a match was found. -1 for none. */
     int find_next = 0; /* if 1 search next, if -1 search prev. */
@@ -1019,7 +1018,7 @@ void editorFind(int fd) {
         } else if (c == ARROW_LEFT || c == ARROW_UP) {
             find_next = -1;
         } else if (isprint(c)) {
-            if (qlen < KILO_QUERY_LEN) {
+            if (qlen < SHADERTEXT_QUERY_LEN) {
                 query[qlen++] = c;
                 query[qlen] = '\0';
                 last_match = -1;
@@ -1150,11 +1149,11 @@ void editorMoveCursor(int key) {
 
 /* Process events arriving from the standard input, which is, the user
  * is typing stuff on the terminal. */
-#define KILO_QUIT_TIMES 3
+#define SHADERTEXT_QUIT_TIMES 3
 void editorProcessKeypress(int fd) {
     /* When the file is modified, requires Ctrl-q to be pressed N times
      * before actually quitting. */
-    static int quit_times = KILO_QUIT_TIMES;
+    static int quit_times = SHADERTEXT_QUIT_TIMES;
 
     int c = editorReadKey(fd);
     switch(c) {
@@ -1217,7 +1216,7 @@ void editorProcessKeypress(int fd) {
         break;
     }
 
-    quit_times = KILO_QUIT_TIMES; /* Reset it to the original value. */
+    quit_times = SHADERTEXT_QUIT_TIMES; /* Restablecerlo a su valor original. */
 }
 
 int editorFileWasModified(void) {
