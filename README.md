@@ -52,42 +52,11 @@ Editor de texto minimalista en C, sin dependencias externas (solo el estándar d
 
 ## Compilación <a id="build"></a>
 
-### Paso 1: Crear el archivo fuente
-
-Crea un archivo llamado `shadertext.c`:
-
-```c
-int main() {
-  return 0;
-}
-```
-
-### Paso 2: Compilar desde la terminal
-
 ```bash
 cc shadertext.c -o shadertext
-./shadertext
+./shadertext <archivo>
 echo $?
 ```
-
-El comando `echo $?` debería devolver `0`, indicando ejecución exitosa
-
-### Paso 3: Usar `make`
-
-Crea un archivo llamado `Makefile` con este contenido:
-
-```makefile
-shadertext: shadertext.c
-   $(CC) shadertext.c -o shadertext -Wall -Wextra -pedantic -std=c99
-```
-
-Luego ejecuta:
-
-```bash
-make
-```
-
-Esto compilará tu programa automáticamente :contentReference[oaicite:6]{index=6}.
 
 ## Licencia <a id="license"></a>
 
