@@ -10,7 +10,7 @@
 
 ## Características <a id="features"></a>
 
-Editor de texto minimalista en C, sin dependencias externas (solo el estándar de C y `make`):contentReference[oaicite:0]{index=0}.
+Editor de texto minimalista en C, sin dependencias externas (solo el estándar de C y make) hecho en un sólo archivo C.
 
 ## Setup <a id="setup"></a>
 
@@ -23,7 +23,6 @@ Editor de texto minimalista en C, sin dependencias externas (solo el estándar d
   cc --version
   make -v
   ```
-  :contentReference[oaicite:1]{index=1}
 
 ### Instalación por sistema operativo
 
@@ -34,7 +33,7 @@ Editor de texto minimalista en C, sin dependencias externas (solo el estándar d
     ```bash
     sudo apt-get install gcc make
     ```
-  - **Cygwin**: durante la instalación, selecciona los paquetes `gcc-core` y `make` desde la categoría `devel`. Luego usa el terminal de Cygwin para compilar :contentReference[oaicite:2]{index=2}.
+  - **Cygwin**: durante la instalación, selecciona los paquetes `gcc-core` y `make` desde la categoría `devel`. Luego usa el terminal de Cygwin para compilar
 
 - **macOS**  
   Ejecuta:
@@ -43,14 +42,13 @@ Editor de texto minimalista en C, sin dependencias externas (solo el estándar d
   xcode-select --install
   ```
 
-  Esto instalará un compilador de C y `make`, como parte de las Command Line Tools :contentReference[oaicite:3]{index=3}.
+  Esto instalará un compilador de C y `make`, como parte de las Command Line Tools
 
 - **Linux (ej. Ubuntu)**  
    Ejecuta:
   ```bash
   sudo apt-get install gcc make
   ```
-  :contentReference[oaicite:4]{index=4}
 
 ## Compilación <a id="build"></a>
 
@@ -72,7 +70,7 @@ cc shadertext.c -o shadertext
 echo $?
 ```
 
-El comando `echo $?` debería devolver `0`, indicando ejecución exitosa :contentReference[oaicite:5]{index=5}.
+El comando `echo $?` debería devolver `0`, indicando ejecución exitosa
 
 ### Paso 3: Usar `make`
 
