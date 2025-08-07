@@ -1,75 +1,117 @@
 # 🎨 Shadertext Editor
 
-## 👇 Tabla de Contenidos
+## Tabla de Contenidos
 
 - [📃 Características](#features)
-- [🔎 Requisitos](#requirements)
-- [💿 Instalación](#installation)
-- [⚙ Configuración](#configuration)
+- [🔧 Setup ](#setup)
+- [💿 Compilación](#build)
 - [📄 Licencia](#license)
+- [✍ Contribuciones](#contributions)
 
-<!-- Secciones actualizadas con anchors simples -->
+## Características <a id="features"></a>
 
-## 📃 Características <a id="features"></a>
+Editor de texto minimalista en C, sin dependencias externas (solo el estándar de C y `make`):contentReference[oaicite:0]{index=0}.
 
-Editor de texto con gráficos 2D utilizando SDL2, GLEW y FreeType.
+## Setup <a id="setup"></a>
 
-## 🔎 Requisitos <a id="requirements"></a>
+### Requisitos básicos
 
-- **SDL2 2.0.12+** ([Official Site](https://www.libsdl.org/))
-- **FreeType 2.13.0+** ([Documentación](https://freetype.org/))
-- **GLEW 2.1.0+** ([Repositorio](https://github.com/nigels-com/glew))
-- Compilador MSVC o compatible C11
+- **Compilador de C** (`cc`)
+- **Herramienta `make`**  
+   Comprueba si están instalados ejecutando:
+  ```bash
+  cc --version
+  make -v
+  ```
+  :contentReference[oaicite:1]{index=1}
 
-## 💿 Instalación <a id="installation"></a>
+### Instalación por sistema operativo
 
-### <u>⚙ Windows (MSVC)</u>
+- **Windows**  
+  Requiere un entorno Linux dentro de Windows, ya que el editor usa `<termios.h>`. Opciones recomendadas:
 
-### Descargar dependencias
+  - **Bash on Windows** (solo Windows 10 64-bit): tras instalarlo, ejecuta:
+    ```bash
+    sudo apt-get install gcc make
+    ```
+  - **Cygwin**: durante la instalación, selecciona los paquetes `gcc-core` y `make` desde la categoría `devel`. Luego usa el terminal de Cygwin para compilar :contentReference[oaicite:2]{index=2}.
 
-```bash
-.\setup_dependencies.bat
+- **macOS**  
+  Ejecuta:
+
+  ```bash
+  xcode-select --install
+  ```
+
+  Esto instalará un compilador de C y `make`, como parte de las Command Line Tools :contentReference[oaicite:3]{index=3}.
+
+- **Linux (ej. Ubuntu)**  
+   Ejecuta:
+  ```bash
+  sudo apt-get install gcc make
+  ```
+  :contentReference[oaicite:4]{index=4}
+
+## Compilación <a id="build"></a>
+
+### Paso 1: Crear el archivo fuente
+
+Crea un archivo llamado `shadertext.c` (o `kilo.c` en el original):
+
+```c
+int main() {
+  return 0;
+}
 ```
 
-### Compilar proyecto
+### Paso 2: Compilar desde la terminal
 
 ```bash
-call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+cc shadertext.c -o shadertext
+./shadertext
+echo $?
 ```
+
+El comando `echo $?` debería devolver `0`, indicando ejecución exitosa :contentReference[oaicite:5]{index=5}.
+
+### Paso 3: Usar `make`
+
+Crea un archivo llamado `Makefile` con este contenido:
+
+```makefile
+shadertext: shadertext.c
+<TAB>$(CC) shadertext.c -o shadertext -Wall -Wextra -pedantic -std=c99
+```
+
+_(Reemplaza `<TAB>` por un tabulador real, no espacios.)_
+
+Luego ejecuta:
 
 ```bash
-.build_msvc.bat
+make
 ```
 
-### Ejecutar editor
+Esto compilará tu programa automáticamente :contentReference[oaicite:6]{index=6}.
 
-```bash
-.\ded.exe src\main.c
-```
+## Licencia <a id="license"></a>
 
-## ⚙ Configuración <a id="configuration"></a>
+MIT License – Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
-- Desktop Development with C++ workload
-- Windows 10 SDK (10.0.19041.0)
-- Requiere fuentes en el directorio `fonts/`
-  - Victor Mono - Fuente monospace principal
-  - Iosevka - Fuente monospace secundaria
+## Contribuciones <a id="contributions"></a>
 
-## 📄 Licencia <a id="license"></a>
+1. Clona el repositorio.
+2. Crea una rama para tu cambio:
+   ```bash
+   git checkout -b feature/nueva-funcionalidad
+   ```
+3. Haz commit de tus cambios:
+   ```bash
+   git commit -m "Agregar una funcionalidad increíble"
+   ```
+4. Envía tu rama:
+   ```bash
+   git push origin feature/nueva-funcionalidad
+   ```
+5. Abre un Pull Request y espera la revisión.
 
-MIT License - Ver [LICENSE](LICENSE) para más detalles
-
-## ✍ Contribuciones
-
-1. Clonar repositorio
-2. Crear rama para nueva funcionalidad o corrección de errores
-   `git checkout -b feature-1/mejora`
-3. Hacer commit de cambios
-   `git commit -m 'Add amazing feature'`
-4. Push a la rama
-   `git push origin feature-1/mejora`
-5. Abrir Pull Request y esperar una revisión
-
-##
-
-"Haz un programa que sea tan simple que obviamente no tenga deficiencias o un programa tan complejo que no tenga deficiencias obvias" - C. A. R. Hoare
+> _“Haz un programa que sea tan simple que obviamente no tenga deficiencias o un programa tan complejo que no tenga deficiencias obvias.”_ – C. A. R. Hoare
